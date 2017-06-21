@@ -1,0 +1,7 @@
+populationSize: 50
+mutationProbability: 1
+crossoverProbability: 6000
+tournamentSize: 8
+numberElites: 2
+numberGenerations: 100
+seed: 0

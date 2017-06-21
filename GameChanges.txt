@@ -1,0 +1,12 @@
+This changes at the project file were performed
+
+In class Game
+-added a function to know the number of lines removed (already had this info, only made a getter)
+
+In class GameView (View in Tetris project)
+-changed the message when the game is in pause
+
+In class Controller (Control in Tetris project)
+-now the Controller is not able to detect user input anymore
+-now the Controller is able to get an Individual in input and run its gene
+-the 'S' command now makes a flying piece to go 1 step bottom instead of landing directly

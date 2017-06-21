@@ -1,0 +1,112 @@
+Input data:
+populationSize: 50
+mutationProbability: 1/10000
+crossoverProbability: 6000/10000
+tournamentSize: 8
+numberElites: 2
+numberGenerations: 100
+gameSeed: 28567
+
+Execution time
+0:0.57
+
+generation   1 - best: 44.000000 (44) - worst: 26.000000 - avg fitness: 29.280001 - std dev: 0.219559
+generation   2 - best: 54.000000 (54) - worst: 26.000000 - avg fitness: 34.799999 - std dev: 1.580408
+generation   3 - best: 54.000000 (24) - worst: 26.000000 - avg fitness: 34.480000 - std dev: 1.467559
+generation   4 - best: 54.000000 (54) - worst: 28.000000 - avg fitness: 36.279999 - std dev: 1.399151
+generation   5 - best: 54.000000 (26) - worst: 26.000000 - avg fitness: 36.720001 - std dev: 2.345274
+generation   6 - best: 60.000000 (60) - worst: 26.000000 - avg fitness: 37.520000 - std dev: 2.708376
+generation   7 - best: 60.000000 (24) - worst: 28.000000 - avg fitness: 37.959999 - std dev: 2.024522
+generation   8 - best: 60.000000 (26) - worst: 30.000000 - avg fitness: 38.279999 - std dev: 1.399151
+generation   9 - best: 60.000000 (28) - worst: 28.000000 - avg fitness: 38.799999 - std dev: 2.380408
+generation  10 - best: 60.000000 (26) - worst: 28.000000 - avg fitness: 38.320000 - std dev: 2.173518
+generation  11 - best: 60.000000 (28) - worst: 32.000000 - avg fitness: 39.599998 - std dev: 1.178775
+generation  12 - best: 60.000000 (32) - worst: 32.000000 - avg fitness: 40.360001 - std dev: 1.426319
+generation  13 - best: 60.000000 (30) - worst: 26.000000 - avg fitness: 39.320000 - std dev: 3.620865
+generation  14 - best: 60.000000 (26) - worst: 28.000000 - avg fitness: 40.360001 - std dev: 3.117747
+generation  15 - best: 60.000000 (28) - worst: 30.000000 - avg fitness: 40.919998 - std dev: 2.433599
+generation  16 - best: 60.000000 (30) - worst: 30.000000 - avg fitness: 40.919998 - std dev: 2.433599
+generation  17 - best: 60.000000 (60) - worst: 28.000000 - avg fitness: 41.279999 - std dev: 3.599150
+generation  18 - best: 60.000000 (38) - worst: 30.000000 - avg fitness: 42.240002 - std dev: 3.057503
+generation  19 - best: 78.000000 (78) - worst: 34.000000 - avg fitness: 44.200001 - std dev: 2.123266
+generation  20 - best: 78.000000 (30) - worst: 30.000000 - avg fitness: 45.560001 - std dev: 4.941095
+generation  21 - best: 78.000000 (28) - worst: 34.000000 - avg fitness: 48.599998 - std dev: 4.350203
+generation  22 - best: 78.000000 (36) - worst: 36.000000 - avg fitness: 50.160000 - std dev: 4.091951
+generation  23 - best: 78.000000 (78) - worst: 34.000000 - avg fitness: 49.639999 - std dev: 4.992032
+generation  24 - best: 78.000000 (40) - worst: 32.000000 - avg fitness: 50.680000 - std dev: 7.121274
+generation  25 - best: 80.000000 (80) - worst: 36.000000 - avg fitness: 55.119999 - std dev: 7.460701
+generation  26 - best: 80.000000 (80) - worst: 38.000000 - avg fitness: 61.119999 - std dev: 10.908865
+generation  27 - best: 80.000000 (80) - worst: 50.000000 - avg fitness: 68.279999 - std dev: 6.819558
+generation  28 - best: 80.000000 (80) - worst: 54.000000 - avg fitness: 74.400002 - std dev: 8.493063
+generation  29 - best: 82.000000 (82) - worst: 72.000000 - avg fitness: 79.599998 - std dev: 1.178775
+generation  30 - best: 82.000000 (82) - worst: 56.000000 - avg fitness: 79.440002 - std dev: 11.212933
+generation  31 - best: 84.000000 (84) - worst: 54.000000 - avg fitness: 79.480003 - std dev: 13.249604
+generation  32 - best: 84.000000 (84) - worst: 54.000000 - avg fitness: 79.480003 - std dev: 13.249604
+generation  33 - best: 84.000000 (84) - worst: 54.000000 - avg fitness: 79.040001 - std dev: 12.795952
+generation  34 - best: 84.000000 (84) - worst: 54.000000 - avg fitness: 82.680000 - std dev: 16.786579
+generation  35 - best: 84.000000 (84) - worst: 72.000000 - avg fitness: 83.480003 - std dev: 2.689602
+generation  36 - best: 92.000000 (92) - worst: 70.000000 - avg fitness: 83.559998 - std dev: 3.752521
+generation  37 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 83.279999 - std dev: 19.968128
+generation  38 - best: 92.000000 (92) - worst: 56.000000 - avg fitness: 86.599998 - std dev: 19.109386
+generation  39 - best: 92.000000 (92) - worst: 50.000000 - avg fitness: 88.199997 - std dev: 29.780403
+generation  40 - best: 92.000000 (92) - worst: 72.000000 - avg fitness: 91.199997 - std dev: 7.523263
+generation  41 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.400002 - std dev: 27.040001
+generation  42 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 88.959999 - std dev: 24.942888
+generation  43 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 88.559998 - std dev: 27.278233
+generation  44 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.480003 - std dev: 27.158993
+generation  45 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 90.199997 - std dev: 29.780403
+generation  46 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.800003 - std dev: 27.637556
+generation  47 - best: 92.000000 (92) - worst: 50.000000 - avg fitness: 88.279999 - std dev: 29.905272
+generation  48 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 88.559998 - std dev: 24.375376
+generation  49 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 89.040001 - std dev: 25.057177
+generation  50 - best: 92.000000 (92) - worst: 38.000000 - avg fitness: 88.279999 - std dev: 51.593437
+generation  51 - best: 92.000000 (92) - worst: 38.000000 - avg fitness: 85.519997 - std dev: 46.084698
+generation  52 - best: 92.000000 (92) - worst: 42.000000 - avg fitness: 88.839996 - std dev: 44.775211
+generation  53 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 89.160004 - std dev: 25.229099
+generation  54 - best: 92.000000 (92) - worst: 50.000000 - avg fitness: 89.400002 - std dev: 31.680819
+generation  55 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.120003 - std dev: 26.625603
+generation  56 - best: 92.000000 (92) - worst: 48.000000 - avg fitness: 88.720001 - std dev: 33.839153
+generation  57 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 86.879997 - std dev: 22.063148
+generation  58 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 89.440002 - std dev: 25.632526
+generation  59 - best: 92.000000 (92) - worst: 62.000000 - avg fitness: 91.400002 - std dev: 17.640001
+generation  60 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 88.480003 - std dev: 27.158993
+generation  61 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.440002 - std dev: 27.099464
+generation  62 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 88.639999 - std dev: 24.488358
+generation  63 - best: 92.000000 (92) - worst: 44.000000 - avg fitness: 83.000000 - std dev: 31.040817
+generation  64 - best: 92.000000 (92) - worst: 46.000000 - avg fitness: 86.160004 - std dev: 32.914814
+generation  65 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.800003 - std dev: 27.637556
+generation  66 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 89.639999 - std dev: 25.922646
+generation  67 - best: 92.000000 (92) - worst: 40.000000 - avg fitness: 86.919998 - std dev: 44.928291
+generation  68 - best: 92.000000 (92) - worst: 42.000000 - avg fitness: 86.599998 - std dev: 40.595100
+generation  69 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.080002 - std dev: 26.566664
+generation  70 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 88.440002 - std dev: 24.206404
+generation  71 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 88.199997 - std dev: 26.743670
+generation  72 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 91.239998 - std dev: 28.302395
+generation  73 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 90.440002 - std dev: 30.155792
+generation  74 - best: 92.000000 (92) - worst: 76.000000 - avg fitness: 91.680000 - std dev: 5.017600
+generation  75 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.279999 - std dev: 26.862005
+generation  76 - best: 92.000000 (92) - worst: 42.000000 - avg fitness: 88.599998 - std dev: 44.317547
+generation  77 - best: 92.000000 (92) - worst: 50.000000 - avg fitness: 87.919998 - std dev: 29.345434
+generation  78 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.400002 - std dev: 27.040001
+generation  79 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 88.919998 - std dev: 27.818089
+generation  80 - best: 92.000000 (92) - worst: 70.000000 - avg fitness: 91.400002 - std dev: 9.346124
+generation  81 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 86.519997 - std dev: 21.582657
+generation  82 - best: 92.000000 (92) - worst: 40.000000 - avg fitness: 84.160004 - std dev: 39.798080
+generation  83 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 88.000000 - std dev: 23.591837
+generation  84 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 89.879997 - std dev: 29.283554
+generation  85 - best: 92.000000 (92) - worst: 38.000000 - avg fitness: 89.000000 - std dev: 53.081635
+generation  86 - best: 92.000000 (92) - worst: 72.000000 - avg fitness: 91.599998 - std dev: 7.839999
+generation  87 - best: 92.000000 (92) - worst: 56.000000 - avg fitness: 90.160004 - std dev: 23.814405
+generation  88 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 90.480003 - std dev: 27.158993
+generation  89 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 88.879997 - std dev: 27.757839
+generation  90 - best: 92.000000 (92) - worst: 38.000000 - avg fitness: 87.959999 - std dev: 50.938805
+generation  91 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 89.279999 - std dev: 28.363232
+generation  92 - best: 92.000000 (92) - worst: 62.000000 - avg fitness: 89.800003 - std dev: 15.772248
+generation  93 - best: 92.000000 (92) - worst: 92.000000 - avg fitness: 92.000000 - std dev: 0.000000
+generation  94 - best: 92.000000 (92) - worst: 62.000000 - avg fitness: 91.000000 - std dev: 17.163265
+generation  95 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 89.879997 - std dev: 26.272942
+generation  96 - best: 92.000000 (92) - worst: 40.000000 - avg fitness: 89.040001 - std dev: 49.080032
+generation  97 - best: 92.000000 (92) - worst: 72.000000 - avg fitness: 90.959999 - std dev: 7.336359
+generation  98 - best: 92.000000 (92) - worst: 54.000000 - avg fitness: 89.279999 - std dev: 25.401598
+generation  99 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 89.800003 - std dev: 29.160004
+generation 100 - best: 92.000000 (92) - worst: 52.000000 - avg fitness: 88.040001 - std dev: 26.507790

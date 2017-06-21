@@ -1,0 +1,270 @@
+#include "GeneticAlgorithm.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+
+GeneticAlgorithm::GeneticAlgorithm(int populationSize,
+                                   int mutationProbability,
+                                   int crossoverProbability,
+                                   int tournamentSize,
+                                   int numberElites,
+                                   unsigned int gameSeed,
+                                   unsigned int algorithmSeed)
+{
+    this->populationSize = populationSize;
+    this->mutationProbability = mutationProbability;
+    this->crossoverProbability = crossoverProbability;
+    this->tournamentSize = tournamentSize;
+    this->numberElites = numberElites;
+    this->gameSeed = gameSeed;
+    this->algorithmSeed = algorithmSeed;
+
+
+    /*initializing the population (randomly)*/
+    population = new Individual* [populationSize];
+    for (int i = 0; i < populationSize; i ++) {
+        /*setting randomly the chromosomes*/
+        population[i] = new Individual();
+
+        /*calculating the fitness for each member*/
+        /*each individual must play the same game*/
+        srand(gameSeed);
+        delete game;
+        game = new Game();
+
+        /*execute movements*/
+        printf("playing the %d game\n", i+1);
+        play(i);
+        printf("game played, fitness %d\n", game->getScore());
+
+        /*set the fitness to the individual*/
+        population[i]->setFitness(game->getScore());
+
+    }
+    srand(algorithmSeed);
+
+    elites = new Individual* [numberElites];
+    tournament = new Individual* [tournamentSize];
+
+    this->game = game;
+
+
+}
+
+Individual* GeneticAlgorithm::getBest() {
+    return population[0];
+}
+
+void GeneticAlgorithm::runGenerations(int n) {
+    while (n > 0) {
+
+        /*save elites*/
+        for (int i = 0; i < numberElites; i ++) {
+            elites[i] = population[i]->clone();
+        }
+
+        /*make tournament*/
+        population = makeTournament();
+
+        /*mutate*/
+        for (int i = 0; i < populationSize; i ++) {
+            population[i]->mutate(mutationProbability);
+        }
+
+        /*crossover*/
+        for (int i = 0; i < populationSize; i = i + 2) {
+            population[i]->crossover(population[i+1], crossoverProbability);
+        }
+
+        /*save the current element of the sequence*/
+        algorithmSeed = rand();
+
+
+        /*calculate the fitness for each member*/
+        for (int i = 0; i < populationSize; i ++) {
+            /*each individual must play the same game*/
+            srand(gameSeed);
+            delete game;
+            game = new Game();
+
+            /*execute movements*/
+            play(i);
+
+            /*set the fitness to the individual*/
+            population[i]->setFitness(game->getScore());
+        }
+
+
+        /*set the sequence again to the ending point saved some lines ago*/
+        srand(algorithmSeed);
+
+        /*sort*/
+        qsort (population, populationSize, sizeof(Individual*), individualComparator);
+
+        /*discard the worst numberElites elements*/
+        for (int i = 0; i <= numberElites; i ++) {
+            delete population[populationSize-i-1];
+            /*add the elites to the population*/
+            population[populationSize-i-1] = elites[i];
+        }
+
+        /*sort again*/
+        qsort (population, populationSize, sizeof(Individual*), individualComparator);
+
+        n--;
+    }
+
+
+}
+
+void GeneticAlgorithm::play (int i) {
+    int chromosomeStep = 0;
+    /*the next two variables are needed to synchronize the
+    machine to the game. ticIncrement set to 25 means that the machine
+    makes a movement each 25 milliseconds, tic is the time in
+    milliseconds passed from the last call to stepBottom() of the game
+    if tic == game->speed a game->stepBottom() must be performed and
+    the tic variable is set again to 0
+    */
+    const int ticIncrement = 25;
+    int tic = 0;
+
+    while (chromosomeStep < CHROMOSOME_SIZE &&
+             game->isPlaying()){
+        /*if is possible*/
+        if (population[i]->genotype[chromosomeStep][population[i]->phenotype[chromosomeStep]] &&
+            tic < game->getSpeed()) {
+
+            printf(" ");
+            for (int k = 0; k < game->h; k++) {
+                printf("|");
+            }
+            printf("\n");
+            for (int k = 0; k < game->v ; k++) {
+                printf("-");
+                for (int q = 0; q < game->h; q++) {
+                    printf("%c",game->getMap()[k][q]);
+                }
+                printf("\n");
+            }
+
+
+
+            /*perform the action*/
+            switch (population[i]->phenotype[chromosomeStep]) {
+            /*W*/
+            case 0:
+                printf("\t\tperform rotation\n");
+                game->rotatePiece();
+                break;
+            /*A*/
+            case 1:
+                printf("\t\tperform left\n");
+                game->moveLeft();
+                break;
+            /*S*/
+            case 2:
+                printf("\t\tperform all bottom\n");
+                game->allBottom();
+                break;
+            /*D*/
+            case 3:
+                printf("\t\tperform right\n");
+                game->moveRight();
+                break;
+            /**/
+            default:
+                printf("\t\tphenotype error\n");
+                break;
+            }
+
+
+        }
+
+        /*if it is time to move the piece one step down, move it*/
+        if (tic >= game->getSpeed()) {
+            printf("\t\tperform step bottom\n");
+            game->stepBottom();
+            tic -= game->getSpeed();
+        }
+
+
+        /*increase the time of the game*/
+        tic += ticIncrement;
+        printf("\ttic %d", tic);
+
+        /*increase the gene considered*/
+        chromosomeStep++;
+
+        printf("\tstep %d\n",chromosomeStep);
+      /*  char invio;
+        fflush(stdin);
+        scanf("%c",&invio);*/
+    }
+
+}
+
+Individual** GeneticAlgorithm::makeTournament() {
+    Individual **newPopulation = new Individual* [populationSize];
+    int winner;
+
+    int random;
+    int numberParticipants;
+
+    int j;
+
+    for (int i = 0; i < populationSize; i ++) {
+        numberParticipants = 0;
+
+        /*select participants*/
+        while (numberParticipants < tournamentSize) {
+
+            /*extract a possible participant*/
+            random = rand () % populationSize;
+
+            /*check if it is not already contained in the tournament array*/
+            /*if it is, extract again a possible participant while you do not
+            find a valid one*/
+            j = 0;
+            while (j < numberParticipants) {
+                if (tournament[j] == population[random]) {
+                    random = rand () % populationSize;
+                    j = -1;
+                }
+                j++;
+            }
+
+            /*add it to the tournament*/
+            tournament[numberParticipants] = population[random];
+            numberParticipants++;
+        }
+
+        /*sort*/
+        qsort (tournament, tournamentSize, sizeof(Individual*),individualComparator);
+
+        winner = 0;
+        /*chose the winner*/
+        while (winner < tournamentSize-1 &&
+               rand()%100 >= 50) {
+                winner++;
+               }
+
+        /*copy the winner into the new population*/
+        newPopulation[i] = tournament[winner]->clone();
+    }
+
+    /*delete the old population*/
+    for (int i = 0; i < populationSize; i ++) {
+        delete population[i];
+
+    }
+    delete []population;
+
+
+    return newPopulation;
+}
+
+/*this function orders an array of individuals in a decreasing order of fitness*/
+int GeneticAlgorithm::individualComparator (const void* a, const void* b) {
+    return (*(Individual**)b)->getFitness() - (*(Individual**)a)->getFitness();
+}
